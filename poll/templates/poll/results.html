@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Results</title>
+    <style media="screen">
+    * {
+       font-size: 20px;
+       font-family: Calibri;
+       padding: 0;
+       margin: 0;
+    }
+    .topbar{
+      width: 100%;
+      padding: 1%;
+      background-color: #6699ff;
+    }
+    .topbar>span{
+      font-size: 36px;
+      padding: 0 0 0 1%;
+      color: #4d5d53;
+    }
+    .topbar a{
+      font-size: 24px;
+      float:right;
+      padding: 0 3% 0 3%;
+      color: #4d5d53;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    .container{
+      background-color: #ccddff;
+      width: 50%;
+      margin: auto;
+    }
+
+    .container *{
+      margin: 2%;
+      color: #666666;
+    }
+
+    .container>h1{
+      font-size: 30px;
+      text-align: center;
+      margin: 0;
+      padding: 2% 0 2% 0;
+      border-bottom: 1px solid white;
+      color: #4d5d53;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <span>Poll Application</span>
+      <span><a href="{% url 'home' %}">Home</a></span>
+      <span><a href="{% url 'create' %}">Create</a></span>
+    </div>
+    <br>
+    <br>
+
+    <div class="container">
+      <h1>Poll Result</h1>
+      <h3>{{ poll.question }}</h3>
+      <p>{{ poll.option_one }} --- {{ poll.option_one_count }}</p>
+      <p>{{ poll.option_two }} --- {{ poll.option_two_count }}</p>
+      <p>{{ poll.option_three }} --- {{ poll.option_three_count }}</p>
+      <p>Total Votes = {{ poll.total }}</p>
+    </div>
+	</body>
+</html>

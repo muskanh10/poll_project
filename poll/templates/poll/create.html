@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Poll</title>
+    <style media="screen">
+      * {
+         font-size: 20px;
+         font-family: Calibri;
+         padding: 0;
+         margin: 0;
+      }
+      .topbar{
+        width: 100%;
+        padding: 1%;
+        background-color: #6699ff;
+      }
+      .topbar>span{
+        font-size: 36px;
+        padding: 0 0 0 1%;
+        color: #4d5d53;
+      }
+      .topbar a{
+        font-size: 24px;
+        float:right;
+        padding: 0 3% 0 3%;
+        color: #4d5d53;
+      }
+
+      a{
+        text-decoration: none;
+      }
+
+      .container{
+        background-color: #ccddff;
+        width: 50%;
+        margin: auto;
+      }
+
+      .container *{
+        margin: 2%;
+        color: #666666;
+      }
+
+      .container>h1{
+        font-size: 30px;
+        text-align: center;
+        margin: 0;
+        padding: 2% 0 2% 0;
+        border-bottom: 1px solid white;
+        color: #4d5d53;
+      }
+
+      form>*{
+        border-radius: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <span>Poll Application</span>
+      <span><a href="{% url 'home' %}">Home</a></span>
+      <span><a href="{% url 'create' %}">Create</a></span>
+    </div>
+    <br>
+    <br>
+
+    <div class="container">
+      <h1>Create A New Poll</h1>
+      <form method="POST">
+          {% csrf_token %}
+          <label for="question">Enter Poll Question</label><br>
+          {{ form.question }}
+          <br>
+          <label for="option1">Option 1</label>
+          {{ form.option_one }}
+          <br>
+          <label for="option2">Option 2</label>
+          {{ form.option_two }}
+          <br>
+          <label for="option3">Option 3</label>
+          {{ form.option_three }}
+          <br>
+          <button type="submit" style="padding: 1%;">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
